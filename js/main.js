@@ -15,6 +15,56 @@ if (navToggle && navMenu) {
     });
 }
 
+// Floating call menu shared by every page that loads this script.
+const callWidget = document.createElement('div');
+callWidget.className = 'floating-call';
+callWidget.innerHTML = `
+    <div class="floating-call-panel" id="floatingCallPanel" aria-labelledby="floatingCallTitle" hidden>
+        <div class="floating-call-heading">
+            <span class="floating-call-eyebrow">Speak with our team</span>
+            <h2 id="floatingCallTitle">Choose an office</h2>
+        </div>
+        <a class="floating-call-option" href="tel:+441733355120">
+            <span class="floating-call-city">Peterborough</span>
+            <span class="floating-call-number">01733 355 120</span>
+        </a>
+        <a class="floating-call-option" href="tel:+441223987120">
+            <span class="floating-call-city">Cambridge</span>
+            <span class="floating-call-number">01223 987 120</span>
+        </a>
+    </div>
+    <button class="floating-call-button" type="button" aria-expanded="false" aria-controls="floatingCallPanel">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <path d="M7.2 3.8h2.5l1.1 4.5-1.8 1.6a14.6 14.6 0 0 0 5.1 5.1l1.6-1.8 4.5 1.1v2.5a2 2 0 0 1-2.2 2A15.7 15.7 0 0 1 5.2 6a2 2 0 0 1 2-2.2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Call our team</span>
+    </button>
+`;
+document.body.appendChild(callWidget);
+
+const callButton = callWidget.querySelector('.floating-call-button');
+const callPanel = callWidget.querySelector('.floating-call-panel');
+const setCallPanelOpen = (isOpen) => {
+    callPanel.hidden = !isOpen;
+    callButton.setAttribute('aria-expanded', String(isOpen));
+};
+
+callButton.addEventListener('click', () => {
+    setCallPanelOpen(callPanel.hidden);
+});
+
+callWidget.querySelectorAll('.floating-call-option').forEach((link) => {
+    link.addEventListener('click', () => setCallPanelOpen(false));
+});
+
+document.addEventListener('click', (event) => {
+    if (!callWidget.contains(event.target)) setCallPanelOpen(false);
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setCallPanelOpen(false);
+});
+
 // Smooth Scroll for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
