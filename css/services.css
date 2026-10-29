@@ -1,0 +1,300 @@
+/* Services Page Styles */
+
+.services-hero {
+    position: relative;
+    min-height: max(60vh, 30rem);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    padding-top: 6rem;
+}
+
+.services-hero .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(30, 58, 138, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.services-hero .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.services-hero .hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 0.75rem 2rem;
+    border-radius: 3rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.services-hero .hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.services-hero .hero-title .highlight {
+    background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.services-hero .hero-subtitle {
+    font-size: 1.375rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+}
+
+.services-detail {
+    padding: 6rem 0;
+    background: var(--bg-white);
+}
+
+.services-detail .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.services-detail .service-card {
+    background: var(--bg-white);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.services-detail .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.services-detail .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-light);
+}
+
+.services-detail .service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.services-detail .service-card.featured {
+    border: 2px solid var(--primary-light);
+}
+
+.services-detail .service-card.featured::before {
+    transform: scaleX(1);
+}
+
+.service-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.services-detail .service-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.services-detail .service-card h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.services-detail .service-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.service-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-dark);
+    font-size: 0.9375rem;
+}
+
+.service-features li::before {
+    content: '✓';
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: gap 0.3s ease;
+}
+
+.service-link:hover {
+    gap: 0.75rem;
+}
+
+.cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+}
+
+.cta-subtitle {
+    font-size: 1.25rem;
+    color: #64748b;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.cta-buttons .btn-primary {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    padding: 1.25rem 3rem;
+    font-size: 1.125rem;
+}
+
+.cta-buttons .btn-secondary {
+    background: #ffffff;
+    color: #1e40af;
+    border: 2px solid #1e40af;
+    padding: 1.25rem 3rem;
+    font-size: 1.125rem;
+}
+
+.cta-buttons .btn-secondary:hover {
+    background: #1e40af;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .services-hero .hero-title {
+        font-size: 3rem;
+    }
+
+    .services-detail .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero {
+        min-height: max(50vh, 30rem);
+    }
+
+    .services-hero .hero-title {
+        font-size: 2.25rem;
+    }
+
+    .services-hero .hero-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .services-detail .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-hero .hero-title {
+        font-size: 1.875rem;
+    }
+
+    .services-detail .service-card {
+        padding: 2rem;
+    }
+}
