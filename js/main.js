@@ -145,7 +145,7 @@ window.addEventListener('scroll', () => {
     navLinks.forEach(link => {
         link.style.color = '';
         if (link.getAttribute('href') === `#${current}`) {
-            link.style.color = 'var(--primary)';
+            link.style.color = 'var(--color-accent-hover)';
         }
     });
 });
